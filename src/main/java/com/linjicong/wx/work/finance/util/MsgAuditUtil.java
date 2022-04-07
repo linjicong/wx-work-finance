@@ -13,12 +13,12 @@ public class MsgAuditUtil {
      * 获取token
      * @return accesstoken
      */
-    public static PermitUserList getPermitUserList(){
+    public static PermitUserListResponse getPermitUserList(){
         String result = HttpRequest.get("https://qyapi.weixin.qq.com/cgi-bin/msgaudit/get_permit_user_list?access_token="+TokenUtil.getToken())
                 .timeout(5000)
                 .execute()
                 .body();
-        return JSONUtil.toBean(result,PermitUserList.class);
+        return JSONUtil.toBean(result, PermitUserListResponse.class);
     }
 
     /**
@@ -61,8 +61,8 @@ public class MsgAuditUtil {
     }
 
     public static void main(String[] args) {
-        //PermitUserList permitUserList = getPermitUserList();
-        //System.out.println(permitUserList);
+        PermitUserListResponse permitUserList = getPermitUserList();
+        System.out.println(permitUserList);
         GroupInfoResponse groupInfo = getGroupInfo("wr7maBCwAAMGI_gswddSwn5nXs3IDWzg");
         System.out.println(groupInfo);
     }

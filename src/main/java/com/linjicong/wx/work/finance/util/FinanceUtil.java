@@ -1,18 +1,12 @@
 package com.linjicong.wx.work.finance.util;
 
 import cn.hutool.core.codec.Base64;
-import cn.hutool.core.io.FileUtil;
 import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
-import cn.hutool.http.HttpRequest;
-import cn.hutool.json.JSONUtil;
-import com.linjicong.wx.work.finance.domain.AccessToken;
 import com.tencent.wework.Finance;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.nio.charset.Charset;
-import java.util.Date;
 
 /**
  * 会话存档工具类

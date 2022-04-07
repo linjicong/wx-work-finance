@@ -3,7 +3,7 @@ package com.linjicong.wx.work.finance;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.linjicong.wx.work.finance.domain.GetChatData;
+import com.linjicong.wx.work.finance.domain.GetChatDataResponse;
 import com.linjicong.wx.work.finance.domain.content.*;
 import com.linjicong.wx.work.finance.domain.enumeration.EmotionTypeEnum;
 import com.linjicong.wx.work.finance.domain.enumeration.MsgTypeEnum;
@@ -22,10 +22,10 @@ public class Main {
         // 1.拉取会话存档数据(加密)
         String originChatData = FinanceUtil.getChatData(0, 1000, null, null, 5);
         System.out.println(JSONUtil.toJsonPrettyStr(originChatData));
-        GetChatData getChatData=JSONUtil.toBean(originChatData, GetChatData.class);
+        GetChatDataResponse getChatData=JSONUtil.toBean(originChatData, GetChatDataResponse.class);
         // 2. 解密会话存档数据
         List<CommonContent> commonContentList = new ArrayList<>();
-        for (GetChatData.ChatData chatData : getChatData.getChatdata()) {
+        for (GetChatDataResponse.ChatData chatData : getChatData.getChatdata()) {
             // 先用私钥解密消息加密的密钥,得到encrypt_key
             String decryptData = FinanceUtil.decryptData(FinanceUtil.decryptRandomKey(chatData.getEncrypt_random_key()), chatData.getEncrypt_chat_msg());
             System.out.println(JSONUtil.toJsonPrettyStr(decryptData));

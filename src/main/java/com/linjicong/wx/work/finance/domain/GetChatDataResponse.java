@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2022-03-23 20:03
  */
 @Data
-public class GetChatData {
+public class GetChatDataResponse {
     // 0表示成功，错误返回非0错误码，需要参看errmsg
     private Integer errcode;
     // 返回信息，如非空为错误原因

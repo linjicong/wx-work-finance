@@ -78,7 +78,6 @@ public class Finance {
     public native static long NewSlice();
 
     /**
-     * @return
      * @brief 释放slice，和NewSlice成对使用
      */
     public native static void FreeSlice(long slice);
